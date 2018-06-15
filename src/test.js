@@ -1,12 +1,24 @@
-import h, {render} from './index';
+import h, {render, Component} from './index';
 
-const element = (
-    <div>
-        hello
-    </div>
-);
+class Welcome extends Component {
+    render() {
+        return <h1>Hello, {this.props.name}</h1>;
+    }
+}
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Welcome name="Sara" />
+                <Welcome name="Cahal" />
+                <Welcome name="Edite" />
+            </div>
+        );
+    }
+}
 
 render(
-    element,
+    <App />,
     document.getElementById('root')
 )
